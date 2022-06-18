@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:food_delivery/presentation/home/home_view.dart';
 
 class MyApp extends StatefulWidget {
   MyApp._internal(); // privat named constrictor
@@ -11,6 +12,9 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp();
+    return const MaterialApp(
+      title: "Food delivery",
+      home: HomePage(),
+    );
   }
 }

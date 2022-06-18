@@ -1,78 +1,81 @@
-class SliderObject {
-  String title;
-  String subTitle;
+class FoodModel {
   String image;
-  SliderObject(this.title, this.subTitle, this.image);
-}
-
-class Customer {
-  String id;
+  String description;
   String name;
-  int numNotification;
-  Customer(this.id, this.name, this.numNotification);
-}
-
-class Contacts {
-  String phone;
-  String link;
-  String email;
-  Contacts(this.phone, this.link, this.email);
-}
-
-class Authentication {
-  Customer? customer;
-  Contacts? contacts;
-  Authentication(this.customer, this.contacts);
-}
-
-class DeviceInfo {
-  String name;
-  String identifier;
-  String version;
-  DeviceInfo(this.name, this.identifier, this.version);
-}
-
-class Service {
-  int id;
-  String title;
-  String image;
-  Service(this.id, this.title, this.image);
-}
-
-class Stores {
-  int id;
-  String title;
-  String image;
-  Stores(this.id, this.title, this.image);
-}
-
-class BannerAd {
-  int id;
-  String title;
-  String image;
-  String link;
-  BannerAd(this.id, this.title, this.image, this.link);
-}
-
-class HomeData {
-  List<Service> services;
-  List<Stores> stores;
-  List<BannerAd> banners;
-  HomeData(this.services, this.stores, this.banners);
-}
-
-class HomeObject {
-  HomeData homeData;
-  HomeObject(this.homeData);
-}
-
-class StoreDetail {
-  int id;
-  String image;
-  String title;
-  String detail;
-  String services;
+  String waitTime;
+  num score;
+  String calories;
+  num price;
+  num quantity;
   String about;
-  StoreDetail(
-      this.image, this.id, this.title, this.detail, this.services, this.about);
+  bool highLight;
+  FoodModel(this.image, this.description, this.name, this.waitTime, this.score,
+      this.calories, this.price, this.quantity, this.about,
+      {this.highLight = false});
+  static List<FoodModel> generatsRecommendedFood() {
+    return [
+      FoodModel(
+          "assets/images/prs.jpg",
+          "10 Pièce, Sauce aux Choix, Supplément aux Choix",
+          "Poffertjes S",
+          "20",
+          4.5,
+          "300",
+          300,
+          10,
+          "10 Pièce, Sauce aux Choix, Supplément aux Choix"),
+      FoodModel(
+          "assets/images/prm.jpg",
+          "15 Pièce, Sauce aux Choix, Supplément aux Choix",
+          "Poffertjes M",
+          "20",
+          4.6,
+          "450",
+          400,
+          10,
+          "15 Pièce, Sauce aux Choix, Supplément aux Choix"),
+      FoodModel(
+          "assets/images/prl.jpg",
+          "20 Pièce, Sauce aux Choix, Supplément aux Choix",
+          "Poffertjes L",
+          "20",
+          4,
+          "600",
+          500,
+          15,
+          "20 Pièce, Sauce aux Choix, Supplément aux Choix"),
+    ];
+  }
+}
+
+class RestaurantModel {
+  String name;
+  String waitTime;
+  String distace;
+  String label;
+  String logo;
+  String description;
+  num score;
+  String mobile;
+  Map<String, List<FoodModel>> menu;
+  RestaurantModel(this.name, this.waitTime, this.distace, this.label, this.logo,
+      this.description, this.score, this.mobile, this.menu);
+  static RestaurantModel generatsRestaurent() {
+    List<FoodModel> recommended = FoodModel.generatsRecommendedFood();
+    recommended.sort((a, b) => a.score.compareTo(b.score));
+    return RestaurantModel(
+        "Poffertjes",
+        "20-30",
+        "2.5Km",
+        "Havana - Bab Ezzouar",
+        "assets/images/pr_logo.png",
+        "Le Havana est LE restaurant à thème à Alger. Idéal pour des Evénements privés ou d'entreprises , aussi pour des sorties romantiques ou en famille . L'équipe organise des soirées animées et dîners dansants chaque week-end",
+        3.8,
+        "0777777777", {
+      "Recommded": recommended,
+      "Popular": FoodModel.generatsRecommendedFood(),
+      "Noodels": [],
+      "Pizza": []
+    });
+  }
 }
