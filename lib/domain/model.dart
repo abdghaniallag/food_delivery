@@ -1,3 +1,5 @@
+import 'package:food_delivery/presentation/resources/assets_manager.dart';
+
 class FoodModel {
   String image;
   String description;
@@ -15,7 +17,7 @@ class FoodModel {
   static List<FoodModel> generatsRecommendedFood() {
     return [
       FoodModel(
-          "assets/images/prs.jpg",
+          ImageAssets.poffertjesS,
           "10 Pièce, Sauce aux Choix, Supplément aux Choix",
           "Poffertjes S",
           "20",
@@ -23,9 +25,10 @@ class FoodModel {
           "300",
           300,
           10,
-          "10 Pièce, Sauce aux Choix, Supplément aux Choix"),
+          "10 Pièce, Sauce aux Choix, Supplément aux Choix",
+          highLight: true),
       FoodModel(
-          "assets/images/prm.jpg",
+          ImageAssets.poffertjesM,
           "15 Pièce, Sauce aux Choix, Supplément aux Choix",
           "Poffertjes M",
           "20",
@@ -35,7 +38,7 @@ class FoodModel {
           10,
           "15 Pièce, Sauce aux Choix, Supplément aux Choix"),
       FoodModel(
-          "assets/images/prl.jpg",
+          ImageAssets.poffertjesL,
           "20 Pièce, Sauce aux Choix, Supplément aux Choix",
           "Poffertjes L",
           "20",
@@ -68,7 +71,7 @@ class RestaurantModel {
         "20-30",
         "2.5Km",
         "Havana - Bab Ezzouar",
-        "assets/images/pr_logo.png",
+        ImageAssets.restaurantLogo,
         "Le Havana est LE restaurant à thème à Alger. Idéal pour des Evénements privés ou d'entreprises , aussi pour des sorties romantiques ou en famille . L'équipe organise des soirées animées et dîners dansants chaque week-end",
         3.8,
         "0777777777", {
